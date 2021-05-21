@@ -23,7 +23,7 @@ class Quiz(models.Model):
     def __str__(self):
         return self.title
 
-class Answers(models.Model):
+class Answer(models.Model):
     question = models.ForeignKey(Quiz,on_delete=models.CASCADE)
     answer = models.CharField(max_length=300)
     is_correct = models.BooleanField(default=False)

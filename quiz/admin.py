@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Quiz, Answers
+from .models import Quiz, Answer
 
 
-class AnswersInlineModel(admin.TabularInline):
-    model = Answers
+class answerInlineModel(admin.TabularInline):
+    model = Answer
     fields = [
         'answer',
         'is_correct',
@@ -22,12 +22,12 @@ class QuizAdmin(admin.ModelAdmin):
         'updated_at', 
     ]
     inlines = [
-        AnswersInlineModel
+        answerInlineModel
     ]
 
-@admin.register(Answers)
+@admin.register(Answer)
 
-class AnswersAdmin(admin.ModelAdmin):
+class AnswerAdmin(admin.ModelAdmin):
     list_display = [
         'answer',
         'is_correct',

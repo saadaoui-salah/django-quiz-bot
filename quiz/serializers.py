@@ -1,21 +1,24 @@
-from django.db.models import fields
 from rest_framework import serializers
-from .models import Quiz, Answers
+from .models import Quiz, Answer
 
-class AnswersSerializer(serializers.ModelSerializer):
+class AnswerSerializer(serializers.ModelSerializer):
+    
     class Meta:
-        model = Answers
+        
+        model = Answer
         fields = [
-            'id', 
+            'id',
             'answer',
-            'is_correct'
+            'is_correct',
         ]
 
 class RandomQuizSerializer(serializers.ModelSerializer):
-    answers = AnswersSerializer(many=True, read_only=True)
+
+    answer = AnswerSerializer(many=True, read_only=True)
+
     class Meta:
+    
         model = Quiz
         fields = [
-            'title',
-            'answers'
+            'title','answer',
         ]
