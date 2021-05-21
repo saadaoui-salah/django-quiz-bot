@@ -12,7 +12,7 @@ class AnswersSerializer(serializers.ModelSerializer):
         ]
 
 class RandomQuizSerializer(serializers.ModelSerializer):
-    answers = AnswersSerializer(any=True, read_only=True)
+    answers = AnswersSerializer(many=True, read_only=True)
     class Meta:
         model = Quiz
         fields = [
