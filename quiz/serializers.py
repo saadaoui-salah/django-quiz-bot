@@ -7,7 +7,7 @@ class AnswersSerializer(serializers.ModelSerializer):
         model = Answers
         fields = [
             'id', 
-            'answers',
+            'answer',
             'is_correct'
         ]
 
@@ -17,5 +17,5 @@ class RandomQuizSerializer(serializers.ModelSerializer):
         model = Quiz
         fields = [
             'title',
-            'answer'
+            'answers'
         ]
