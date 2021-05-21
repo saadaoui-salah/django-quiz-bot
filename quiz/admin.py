@@ -1,8 +1,6 @@
 from django.contrib import admin
 from .models import Quiz, Answers
 
-admin.site.register(Quiz)
-admin.site.register(Answers)
 
 class AnswersInlineModel(admin.TabularInline):
     model = Answers
@@ -10,6 +8,8 @@ class AnswersInlineModel(admin.TabularInline):
         'answer',
         'is_correct',
     ]    
+
+@admin.register(Quiz)
 
 class QuizAdmin(admin.ModelAdmin):
     fields = [
@@ -23,4 +23,13 @@ class QuizAdmin(admin.ModelAdmin):
     ]
     inlines = [
         AnswersInlineModel
+    ]
+
+@admin.register(Answers)
+
+class AnswersAdmin(admin.ModelAdmin):
+    list_display = [
+        'answer',
+        'is_correct',
+        'question'
     ]
