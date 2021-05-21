@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .modesl import Quiz, Answers
+from .models import Quiz, Answers
 
 class AnswersSerializer(serializers.ModelSerializer):
     class Meta:
