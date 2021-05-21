@@ -4,9 +4,23 @@ from .models import Quiz, Answers
 admin.site.register(Quiz)
 admin.site.register(Answers)
 
-class AnswersAdmin(admin.ModelAdmin):
-    list_display = (
-        'answers',
-        'is_correct', 
-        'questions'
-    )
+class AnswersInlineModel(admin.TabularInline):
+    model = Answers
+    fields = [
+        'answer',
+        'is_correct',
+    ]    
+
+class QuizAdmin(admin.ModelAdmin):
+    fields = [
+        'title',
+        'points',
+        'difficulty'
+    ]
+    list_display = [
+        'title',
+        'updated_at', 
+    ]
+    inlines = [
+        AnswersInlineModel
+    ]
