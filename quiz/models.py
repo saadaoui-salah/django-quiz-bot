@@ -19,3 +19,11 @@ class Quiz(models.Model):
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now=False,auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True,auto_now_add=False)
+
+class Answers(models.Model):
+    question = models.ForeignKey(Quiz,on_delete=models.CASCADE)
+    answer = models.CharField(max_length=300)
+    is_correct = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now=False,auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True,auto_now_add=False)
