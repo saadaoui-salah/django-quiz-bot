@@ -2,5 +2,5 @@ from django.urls import path
 from .views import RandomQuiz
 
 urlpatterns = [
-    path("/", RandomQuiz.as_view())
+    path("api/random/", RandomQuiz.as_view())
 ]
