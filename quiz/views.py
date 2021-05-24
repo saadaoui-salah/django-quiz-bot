@@ -7,6 +7,6 @@ from .serializers import RandomQuizSerializer, AnswerSerializer
 class RandomQuiz(APIView):
     
     def get(self, request, formate=None, **kwargs):
-        question = Quiz.objects.filter().order_by('?')
+        question = Quiz.objects.filter().order_by('?')[:1]
         serializer = RandomQuizSerializer(question, many=True)
         return Response(serializer.data)
