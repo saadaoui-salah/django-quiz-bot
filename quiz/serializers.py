@@ -20,5 +20,5 @@ class RandomQuizSerializer(serializers.ModelSerializer):
     
         model = Quiz
         fields = [
-            'title','answer',
+            'title','answer'
         ]
