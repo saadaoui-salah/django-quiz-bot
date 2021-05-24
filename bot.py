@@ -7,7 +7,7 @@ client = discord.Client()
 def get_quesiotns():
     respose = requests.get("")
     json_data = json.loads(respose)
-    question = f'Question: \n{json_data["title"]}'
+    question = f'Question: \n{json_data[0]["title"]}'
 
 @client.event
 async def on_message(message):
