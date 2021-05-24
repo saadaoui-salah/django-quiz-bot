@@ -31,7 +31,10 @@ async def on_message(message):
         return
     if message.content.startswith('$question'):
         message_text, right_answer = create_message()
-
         await message.channel.send(message_text)
+
+    def check(m):
+        return m.author == message.author and m.content.isdigit()
+    
 
 client.run("ODQ1MjkzMTM2MDA4MDUyNzg2.YKe2lA.pwMdsZ4PGoFcXI0wNbKwas4wJcE")
