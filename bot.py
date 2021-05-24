@@ -36,5 +36,10 @@ async def on_message(message):
     def check(m):
         return m.author == message.author and m.content.isdigit()
     
+    try:
+        guess = await client.wait_for('message', check=check, timeout=5.0)
+    except:
+        return await message.channel.send("Sorry, you took too long")
+    
 
 client.run("ODQ1MjkzMTM2MDA4MDUyNzg2.YKe2lA.pwMdsZ4PGoFcXI0wNbKwas4wJcE")
