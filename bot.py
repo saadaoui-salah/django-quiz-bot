@@ -42,5 +42,7 @@ async def on_message(message):
     except asyncio.TimeoutError:
         return await message.channel.send("Sorry, you took too long")
     
+    if int(message.content) == right_answer:
+        await message.channel.send('Your are right')
 
 client.run("ODQ1MjkzMTM2MDA4MDUyNzg2.YKe2lA.pwMdsZ4PGoFcXI0wNbKwas4wJcE")
