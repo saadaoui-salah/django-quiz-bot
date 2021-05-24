@@ -1,6 +1,7 @@
 import discord 
 import requests
 import json
+import asyncio
 
 client = discord.Client()
 
@@ -38,7 +39,7 @@ async def on_message(message):
     
     try:
         guess = await client.wait_for('message', check=check, timeout=5.0)
-    except:
+    except asyncio.TimeoutError:
         return await message.channel.send("Sorry, you took too long")
     
 
