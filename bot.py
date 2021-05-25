@@ -40,7 +40,7 @@ async def on_message(message):
             return m.author == message.author and m.content.isdigit()
         
         try:
-            guess = await client.wait_for('message', check=check, timeout=5.0)
+            guess = await client.wait_for('message', check=check, timeout=2)
         except asyncio.TimeoutError:
             return await message.channel.send("Sorry, you took too long")
         
