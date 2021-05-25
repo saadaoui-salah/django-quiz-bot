@@ -34,15 +34,18 @@ async def on_message(message):
         message_text, right_answer = create_message()
         await message.channel.send(message_text)
 
-    def check(m):
-        return m.author == message.author and m.content.isdigit()
-    
-    try:
-        guess = await client.wait_for('message', check=check, timeout=5.0)
-    except asyncio.TimeoutError:
-        return await message.channel.send("Sorry, you took too long")
-    
-    if int(message.content) == right_answer:
-        await message.channel.send('Your are right')
+        def check(m):
+            return m.author == message.author and m.content.isdigit()
+        
+        try:
+            guess = await client.wait_for('message', check=check, timeout=5.0)
+        except asyncio.TimeoutError:
+            return await message.channel.send("Sorry, you took too long")
+        
+        if int(guess.content) == right_answer:
+            await message.channel.send('Right answer')
+        else:
+            await message.channel.send("Oops, that's not right")
 
-client.run("ODQ1MjkzMTM2MDA4MDUyNzg2.YKe2lA.pwMdsZ4PGoFcXI0wNbKwas4wJcE")
+
+client.run("ODQ1MjkzMTM2MDA4MDUyNzg2.YKe2lA.j-N04YygYqksFKYep9rlAfcvrFc")
