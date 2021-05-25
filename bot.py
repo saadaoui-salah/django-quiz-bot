@@ -21,7 +21,8 @@ def get_question(data):
     return f'Question: \n{data[0]["title"]}'
 
 def create_message():
-    respose = requests.get("http://discord-quiz-bot.herokuapp.com/api/random/")
+    respose = requests.get("https://discrod-quiz-bot.herokuapp.com/api/random/?format=json")
+    print(respose.text)
     json_data = json.loads(respose.text)
     question = get_question(json_data)
     answers, right_answer = get_answers(json_data)
@@ -49,5 +50,5 @@ async def on_message(message):
             await message.channel.send("Oops, that's not right")
 
 
-TOKEN = os.getenv('DISCORD_TOKEN')
-client.run(TOKEN)
+#TOKEN = os.getenv('DISCORD_TOKEN')
+client.run("ODQ1MjkzMTM2MDA4MDUyNzg2.YKe2lA.NS2042YpH27oLPLFTv6whmNiW_8")
