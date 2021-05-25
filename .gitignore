@@ -1,4 +1,4 @@
-/env
-/quiz/__pycache__
-/quiz/migrations
-/core/__pycache__
+env
+quiz/__pycache__
+quiz/migrations
+core/__pycache__
