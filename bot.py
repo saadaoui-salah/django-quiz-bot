@@ -20,7 +20,7 @@ def get_question(data):
     return f'Question: \n{data[0]["title"]}'
 
 def create_message():
-    respose = requests.get("http://127.0.0.1:8000/api/random/")
+    respose = requests.get("http://discord-quiz-bot.herokuapp.com/api/random/")
     json_data = json.loads(respose.text)
     question = get_question(json_data)
     answers, right_answer = get_answers(json_data)
